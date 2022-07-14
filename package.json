@@ -1,0 +1,26 @@
+{
+  "name": "nagarro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "request": "^2.88.2",
+    "superheroes": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onkar2323/nagarro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/onkar2323/nagarro/issues"
+  },
+  "homepage": "https://github.com/onkar2323/nagarro#readme"
+}
