@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "ejs": "^3.1.8",
     "jquery": "^3.6.0",
     "request": "^2.88.2",
     "superheroes": "^3.0.0"
