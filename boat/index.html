@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <title>BOAt</title>
+    <style>
+        
+  .flash_sale {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    justify-content: space-between;
+    padding: 0px 10px;
+    background: linear-gradient(270deg, #FBC50A 23.86%, #DFB108 47.06%, #FBC50A 66.05%);
+    border-radius: 5px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    animation: 5s linear 0s infinite normal none running bgstrip;
+  }
+
+  .flash_text {
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+
+  .flashtimer {
+    margin: 0;
+    background: transparent;
+    padding: 10px 0;
+    max-width: max-content;
+    border-radius: 5px;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+  }
+
+  .flashtimer .timer--expired {
+    display: none;
+  }
+
+  .flashtimer .timer__title {
+    text-align: center;
+    margin: 0 !important;
+    color: #070707;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .flashtimer .timer-display {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    margin-top: 0;
+  }
+
+  .flashtimer .timer-block {
+    position: relative;
+    width: 36px;
+    padding: 0;
+    text-align: center;
+    font-size: 16px;
+    color: #070707;
+    font-weight: 500;
+  }
+
+  .flashtimer .timer-block__num,
+  .flashtimer .timer-block__unit {
+    display: block;
+    text-align: center;
+  }
+
+  .flashtimer .milliseconds {
+    background: white;
+    color: black;
+    font-weight: bold;
+    padding: 0;
+    width: 22px;
+  }
+
+  @keyframes bgstrip {
+    0% {
+      background-position: -1000px 0px;
+    }
+
+    100% {
+      background-position: 1000px 0px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .flashtimer .timer-block {
+      width: 31px !important;
+      font-size: 14px !important;
+    }
+
+    .flashtimer .timer__title,
+    .flash_text {
+      font-size: 14px !important;
+    }
+  }
+
+  @media (min-width:769px) {
+    .flash_sale {
+      width: 400px;
+    }
+  }
+    </style>
+</head>
+
+<body style="background-color: #141414;">
+    <!-- navbar  -->
+    <nav class="navbar navbar-expand-lg navbar-dark p-3 " style="background-color: #000;">
+        <div class="container-fluid display ">
+            <div class="d-flex justify-content-between w-100 ">
+                <a class="navbar-brand " href="#"> <h3>bo<span class="text-danger">A</span>t</h3></a>
+
+                <div style="margin-left: 210px;" class="collapse navbar-collapse flex-grow-0 ml-5"
+                    id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" aria-current="page" href="#">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">Daily Deals</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-light" href="#">Offer Zone</a>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="#">More</a>
+                        </li>
+                    </ul>
+                </div>
+                <form class="d-flex">
+                    <input style="border-radius: 50px;" class="form-control m-2 " type="search" placeholder="Search"
+                        aria-label="Search">
+                    <a href="">
+                        <img class="m-2" style="max-width:24px" src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/navigation-Icon4.png?v=1655206048">
+                    </a>
+                    <a href="">
+                        <img class="m-2"  src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/gift.png?v=1606314809" alt="gift card" style="max-width:22px;">
+                    </a>
+                    <a href="">
+                        <img class="m-2" style="max-height:24px;" src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/navigation-Icon-3.png?v=1655206047">
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- corousel -->
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item ">
+                <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/A121-website-banner_2000x.jpg?v=1658560096"
+                    class="d-block w-100 " alt="...">
+            </div>
+            <div class="carousel-item active">
+                <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/Collection-Banner_346efdc6-82b3-4370-87b9-e018fe298c09_2000x.jpg?v=1658677055"
+                    class="d-block w-100 " alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/stone-banner_2000x.jpg?v=1658989222"
+                    class="d-block w-100 " alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- Biggest Launch Section -->
+
+    <div class="d-flex justify-content-center align-items-center mt-5 pt-5">
+        <h2 class="text-light"><b>Biggest Launches. Dopest Products. 🚀</b></h2>
+    </div>
+
+    <div class="d-flex justify-content-around m-4">
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/fvtfgvt_800x.png?v=1658150489"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">boAt Airdopes 121 PRO</h5>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 1,299
+                        <span class="text-dark"><del>₹ 2,990</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 1691 (57%)</p>
+                <a href="#" class="btn btn-warning text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/3_2_600x.png?v=1657293557"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">Rockerz 330 ANC</h5>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 1,499
+                        <span class="text-dark"><del>₹ 5,999</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 4500 (75%)</p>
+                <a href="#" class="btn btn-warning text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/xtend-pro-2_300x.png?v=1658298304"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">boAt Xtend Pro</h5>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 4,499
+                        <span class="text-dark"><del>₹ 9,799</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 5300 (54%)
+                </p>
+                <a href="#" class="btn btn-danger text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/413-green_300x.png?v=1658298863"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">boAt Airdopes 413 ANC</h5>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 1,999
+                        <span class="text-dark"><del>₹ 4,990</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 2991 (60%)</p>
+                <a href="#" class="btn btn-warning text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deals of the day section -->
+
+    <div class="d-flex flex-column  justify-content-center align-items-center mt-5 pt-5">
+        <h2 class="text-light">Deals of The Day</h2>
+        <a href="#" class="btn fw-bold">
+            <div class="flash_sale">
+                <p class="m-0 text-uppercase flash_text">
+                    <span class="thunder">
+                        <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/files/thunder_2.png?v=1655103798"
+                            loading="lazy" alt="thunder">
+                    </span>
+                    Daily Deals
+                </p>
+                <div class="flashtimer">
+                    <h4 class="timer__title">Ending In:</h4>
+                    <div class="timer-display">
+                        <div class="timer-block">
+                            <span class="timer-block__num js-timer-days">00</span>
+                        </div>
+                        <div class="timer-block">
+                            <span class="timer-block__num js-timer-hours">00</span>
+                        </div>
+                        <div class="timer-block">
+                            <span class="timer-block__num js-timer-minutes">00</span>
+                        </div>
+                        <div class="timer-block">
+                            <span class="timer-block__num js-timer-seconds">00</span>
+                        </div>
+                        <div class="timer-block milliseconds">
+                            <span class="timer-block__num js-timer-ms">00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <p class="text-light">
+            <b>View all></b>
+        </p>
+    </div>
+
+    <div class="d-flex justify-content-around m-4">
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/ed46e58c-9643-43e0-b350-9539d293aa51_500x.png?v=1625045114"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">boAt Rockerz 235 V2</h5>
+                <span><img alt="Red Christmas Star icon" srcset="https://img.icons8.com/material-sharp/2x/christmas-star.png 2x" style=" height: 10%; filter: invert(42%) sepia(60%) saturate(759%) hue-rotate(316deg) brightness(101%) contrast(96%);"> 4.8 | 1036 reviews</span>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 999
+                        <span class="text-dark"><del>₹ 2,990</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 1991 (67%)</p>
+                <a href="#" class="btn btn-warning text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/e7910a39-186a-41f6-ac57-fc3e84108104_500x.png?v=1625045106"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">boAt Storm Smart...</h5>
+                <span><img alt="Red Christmas Star icon" srcset="https://img.icons8.com/material-sharp/2x/christmas-star.png 2x" style=" height: 10%; filter: invert(42%) sepia(60%) saturate(759%) hue-rotate(316deg) brightness(101%) contrast(96%);"> 4.8 | 929 reviews</span>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 2,499
+                        <span class="text-dark"><del>₹ 5,990</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 3491 (58%)</p>
+                <a href="#" class="btn btn-warning text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/553af994-244a-4b81-9d9e-9967a1b966b3_500x.png?v=1656750183"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">boAt BassHeads 100</h5>
+                <span><img alt="Red Christmas Star icon" srcset="https://img.icons8.com/material-sharp/2x/christmas-star.png 2x" style=" height: 10%; filter: invert(42%) sepia(60%) saturate(759%) hue-rotate(316deg) brightness(101%) contrast(96%);"> 4.8 | 407 reviews</span>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 379
+                        <span class="text-dark"><del>₹ 999</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 620 (62%)
+                </p>
+                <a href="#" class="btn btn-warning text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+
+        <div class="card " style="width: 21rem; border-radius: 8px; background-color: #e3e3e3;">
+            <img src="https://cdn.shopify.com/s/files/1/0057/8938/4802/products/103blk_500x.png?v=1574927262"
+                class="card-img-top" alt="...">
+            <div class="card-body bg-light  m-2" style="border-radius: 8px;">
+                <h5 class="card-title">boAt BassHeads 103</h5>
+                <span><img alt="Red Christmas Star icon" srcset="https://img.icons8.com/material-sharp/2x/christmas-star.png 2x" style=" height: 10%; filter: invert(42%) sepia(60%) saturate(759%) hue-rotate(316deg) brightness(101%) contrast(96%);"> 4.8 | 533 reviews</span>
+                <hr>
+                <strong>
+                    <p class="card-text text-danger">₹ 399
+                        <span class="text-dark"><del>₹ 1,290</del></span>
+                    </p>
+                </strong>
+                <p>You Save: ₹ 891 (69%)</p>
+                <a href="#" class="btn btn-warning text-light w-100">ADD TO CART</a>
+            </div>
+        </div>
+    </div>
+   
+
+
+    <script>
+
+        //    $(window).on('load', function() {
+        //    	$('.timer-display').css("display", "flex");
+        //    })
+        var second = 1000,
+            minute = second * 60,
+            hour = minute * 60,
+            _day = hour * 24;
+
+        var hr = 23;
+        var min = 59;
+        var sec = 60;
+        var distance = 1;
+        x = setInterval(function () {
+            var curr = new Date();
+            //     document.querySelector('.flashtimer .js-timer-days').innerText = Math.floor(distance / (_day)) + 'd',
+            document.querySelector('.flashtimer .js-timer-hours').innerText = hr - curr.getHours() + 'h',
+                document.querySelector('.flashtimer .js-timer-minutes').innerText = min - curr.getMinutes() + 'm',
+                document.querySelector('.flashtimer .js-timer-seconds').innerText = sec - curr.getSeconds() + 's';
+        }, second);
+
+
+
+        if (distance > 0) {
+            const printNumbersForEvery2Sec = (n) => {
+                for (let i = 1; i <= n; i++) {
+                    var y = setInterval(() => {
+                        document.querySelector('.flashtimer .js-timer-ms').innerText = i;
+                    }, i * 100)
+                }
+            }
+            printNumbersForEvery2Sec(10);
+        } 
+    </script>
+</body>
+
+</html>
